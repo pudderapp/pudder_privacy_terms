@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Pudder</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #2c6e40;
+      --green-light:#e8f2ec;
+      --text:       #1a1a1a;
+      --secondary:  #4a4a4a;
+      --tertiary:   #7a7a7a;
+      --border:     #e0e0e0;
+      --bg:         #f7f9f8;
+      --white:      #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    header {
+      background: var(--green);
+      padding: 48px 24px 40px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    header .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: block;
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .meta {
+      background: var(--green-light);
+      border-left: 4px solid var(--green);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-bottom: 40px;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+
+    .meta strong { color: var(--green); }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--green);
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2:first-of-type { margin-top: 0; }
+
+    p { margin-bottom: 14px; color: var(--secondary); }
+
+    ul {
+      margin: 0 0 14px 20px;
+      color: var(--secondary);
+    }
+
+    ul li { margin-bottom: 6px; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--green-light);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .badge-green  { background: var(--green-light); color: var(--green); }
+    .badge-grey   { background: #f0f0f0; color: var(--tertiary); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 14px;
+      background: var(--green-light);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--secondary);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .contact-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-box h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .contact-box p  { margin-bottom: 0; }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.82rem;
+      color: var(--tertiary);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">⛳</div>
+  <h1>Pudder</h1>
+  <p>Privacy Policy</p>
+</header>
+
+<div class="container">
+
+  <div class="meta">
+    <strong>Last updated: 29 May 2026</strong><br>
+    This policy applies to the Pudder iOS app and Apple Watch companion app.
+  </div>
+
+  <!-- 1. Overview -->
+  <h2>1. Overview</h2>
+  <p>
+    Pudder is a golf round-tracking app. We designed it with privacy as a default:
+    <strong>all your data is stored only on your device</strong>. We do not operate
+    servers, create user accounts, or transmit your personal information to any
+    third party.
+  </p>
+
+  <!-- 2. Data we collect -->
+  <h2>2. Data We Collect and Why</h2>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">📍</span> Location Data <span class="badge badge-green">On-device only</span></div>
+    <p style="margin:8px 0 0">
+      Pudder uses your precise GPS location during an active round to record where
+      each shot lands and calculate distances to the green. Location is accessed
+      <em>only</em> while a round is in progress and is never uploaded, shared, or
+      used for advertising.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">👤</span> Profile (Name &amp; Handicap) <span class="badge badge-green">On-device only</span></div>
+    <p style="margin:8px 0 0">
+      You may optionally enter your name and handicap index. This information is
+      stored locally on your device using iOS secure storage and is never sent
+      off your device.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🏌️</span> Round &amp; Shot History <span class="badge badge-green">On-device only</span></div>
+    <p style="margin:8px 0 0">
+      Your round history, scores, shot positions, club distances, and handicap
+      records are stored entirely on your device. You can export this data as a
+      backup file at any time and delete it permanently from within the app.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🗺️</span> Course Map Data <span class="badge badge-grey">Public data, anonymous</span></div>
+    <p style="margin:8px 0 0">
+      When you search for a golf course, Pudder queries
+      <a href="https://www.openstreetmap.org" target="_blank">OpenStreetMap</a>'s
+      Overpass API to retrieve publicly available course layout data (hole
+      positions, tees, greens). This request contains no personal information —
+      only the geographic bounding box of the course. Course data is cached on
+      your device to minimise repeat requests.
+    </p>
+  </div>
+
+  <!-- 3. Data summary table -->
+  <h2>3. Data Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Data Type</th>
+        <th>Where Stored</th>
+        <th>Shared With Third Parties</th>
+        <th>Used for Advertising</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Precise location</td>
+        <td>On-device only</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Name &amp; handicap</td>
+        <td>On-device only</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Round &amp; shot history</td>
+        <td>On-device only</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Club distances &amp; settings</td>
+        <td>On-device only</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Course map data (OSM)</td>
+        <td>On-device cache</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 4. Apple Watch -->
+  <h2>4. Apple Watch Companion App</h2>
+  <p>
+    The Pudder Apple Watch app communicates directly with your iPhone over
+    WatchConnectivity. No data passes through external servers. The Watch app
+    uses a temporary HealthKit workout session solely to maintain GPS accuracy
+    during your round — no health or workout data is written to or read from the
+    Health app.
+  </p>
+
+  <!-- 5. Analytics & tracking -->
+  <h2>5. Analytics and Tracking</h2>
+  <p>
+    Pudder contains <strong>no analytics SDKs, no advertising SDKs, and no
+    crash-reporting services</strong>. We do not track you across other apps or
+    websites. Apple's own aggregated App Store metrics may be collected by Apple
+    under their own privacy policy.
+  </p>
+
+  <!-- 6. Data retention -->
+  <h2>6. Data Retention and Deletion</h2>
+  <p>
+    Your data is retained on your device until you delete it. You can delete all
+    data at any time from within the app:
+  </p>
+  <ul>
+    <li><strong>Delete a single round:</strong> Swipe left on any round in your history.</li>
+    <li><strong>Clear all round history:</strong> Profile → Data → Clear All Round History.</li>
+    <li><strong>Delete all data:</strong> Profile → Data → Delete Account removes your
+      profile, all rounds, club settings, and cached course data permanently.</li>
+  </ul>
+  <p>
+    Because all data is stored only on your device, uninstalling the app will
+    also remove all associated data.
+  </p>
+
+  <!-- 7. Children -->
+  <h2>7. Children's Privacy</h2>
+  <p>
+    Pudder is rated 4+ and is suitable for all ages. We do not knowingly collect
+    any personal information from children under 13. Because all data stays on
+    the user's device and is never transmitted to us, there are no additional
+    risks specific to children.
+  </p>
+
+  <!-- 8. Third-party services -->
+  <h2>8. Third-Party Services</h2>
+  <p>
+    Pudder uses one external service:
+  </p>
+  <ul>
+    <li>
+      <strong>OpenStreetMap Overpass API</strong> (<a href="https://overpass-api.de" target="_blank">overpass-api.de</a>)
+      — used anonymously to fetch publicly available golf course layout data.
+      No personal data is sent. See the
+      <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OpenStreetMap Foundation Privacy Policy</a>.
+    </li>
+  </ul>
+  <p>
+    Apple Maps (MKLocalSearch) is used for course search. This is governed by
+    <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.
+  </p>
+
+  <!-- 9. Your rights -->
+  <h2>9. Your Rights</h2>
+  <p>
+    Because we do not collect or store your data on any server, standard data
+    subject rights (access, rectification, portability, erasure) are exercised
+    directly on your device using the deletion features described in Section 6.
+    There is no account to request deletion of from our side — your data belongs
+    entirely to you.
+  </p>
+
+  <!-- 10. Changes -->
+  <h2>10. Changes to This Policy</h2>
+  <p>
+    If we make material changes to this privacy policy, we will update the
+    "Last updated" date at the top of this page. Continued use of the app after
+    changes are posted constitutes acceptance of the updated policy.
+  </p>
+
+  <div class="contact-box">
+    <h3>Questions?</h3>
+    <p>
+      If you have any questions about this privacy policy, contact us at<br>
+      <a href="mailto:privacy@pudder.app">privacy@pudder.app</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Pudder. All rights reserved.
+  &nbsp;·&nbsp;
+  <a href="/">pudder.app</a>
+</footer>
+
+</body>
+</html>

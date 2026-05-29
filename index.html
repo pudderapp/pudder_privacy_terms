@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pudder – Golf Round Tracker</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #2c6e40;
+      --green-light:#e8f2ec;
+      --text:       #1a1a1a;
+      --secondary:  #4a4a4a;
+      --tertiary:   #7a7a7a;
+      --border:     #e0e0e0;
+      --bg:         #f7f9f8;
+      --white:      #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--green);
+      padding: 80px 24px 72px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .logo {
+      font-size: 72px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 1.15rem;
+      opacity: 0.85;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .app-store-btn {
+      display: inline-block;
+      margin-top: 32px;
+      background: var(--white);
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .app-store-btn:hover { opacity: 0.88; }
+
+    .features {
+      max-width: 800px;
+      margin: 64px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .feature .icon { font-size: 36px; margin-bottom: 12px; }
+
+    .feature h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .feature p { font-size: 0.9rem; color: var(--secondary); }
+
+    .privacy-note {
+      max-width: 600px;
+      margin: 0 auto 64px;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .privacy-note p {
+      font-size: 0.92rem;
+      color: var(--tertiary);
+    }
+
+    .privacy-note a { color: var(--green); text-decoration: none; font-weight: 500; }
+    .privacy-note a:hover { text-decoration: underline; }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.82rem;
+      color: var(--tertiary);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--green); text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">⛳</div>
+  <h1>Pudder</h1>
+  <p>Track every shot. Build your game.<br>Golf round tracker for iPhone &amp; Apple Watch.</p>
+  <a class="app-store-btn" href="https://apps.apple.com/app/pudder" target="_blank">Download on the App Store</a>
+</header>
+
+<div class="features">
+  <div class="feature">
+    <div class="icon">📍</div>
+    <h3>Shot Tracking</h3>
+    <p>Tap HIT to record each shot's GPS position and auto-calculate distances.</p>
+  </div>
+  <div class="feature">
+    <div class="icon">⌚</div>
+    <h3>Apple Watch</h3>
+    <p>Track your round from your wrist — distance to green, score, and club selection.</p>
+  </div>
+  <div class="feature">
+    <div class="icon">📊</div>
+    <h3>Stats &amp; Handicap</h3>
+    <p>GIR, fairways hit, average putts, scoring trends, and your GHIN handicap index.</p>
+  </div>
+  <div class="feature">
+    <div class="icon">🔒</div>
+    <h3>100% Private</h3>
+    <p>All your data stays on your device. No accounts, no servers, no tracking.</p>
+  </div>
+</div>
+
+<div class="privacy-note">
+  <p>
+    Pudder stores all your data locally on your device.
+    We don't collect, share, or sell your personal information.
+    <br>
+    <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a>
+  </p>
+</div>
+
+<footer>
+  &copy; 2026 Pudder. All rights reserved.
+  &nbsp;·&nbsp;
+  <a href="/privacy">Privacy Policy</a>
+  <a href="/terms">Terms of Use</a>
+</footer>
+
+</body>
+</html>
