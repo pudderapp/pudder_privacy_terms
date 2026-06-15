@@ -44,6 +44,7 @@
       align-items: center;
       justify-content: center;
       font-size: 40px;
+      flex-shrink: 0;
     }
 
     header h1 {
@@ -111,6 +112,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .card-title .icon {
@@ -137,6 +139,7 @@
 
     .badge-green  { background: var(--green-light); color: var(--green); }
     .badge-grey   { background: #f0f0f0; color: var(--tertiary); }
+    .badge-blue   { background: #e8f0fb; color: #2a5db0; }
 
     table {
       width: 100%;
@@ -200,7 +203,7 @@
 <div class="container">
 
   <div class="meta">
-    <strong>Last updated: 29 May 2026</strong><br>
+    <strong>Last updated: 15 June 2026</strong><br>
     This policy applies to the Pudder iOS app and Apple Watch companion app.
   </div>
 
@@ -208,9 +211,16 @@
   <h2>1. Overview</h2>
   <p>
     Pudder is a golf round-tracking app. We designed it with privacy as a default:
-    <strong>all your data is stored only on your device</strong>. We do not operate
-    servers, create user accounts, or transmit your personal information to any
-    third party.
+    <strong>all your data is stored only on your device unless you explicitly choose
+    to enable optional social features.</strong> When social features are off (the
+    default), we do not operate servers, create user accounts, or transmit your
+    personal information to any third party.
+  </p>
+  <p>
+    If you choose to create a social account within Pudder, certain data is
+    transmitted to our social provider (Stream) as described in Section 2 and
+    Section 8. This is entirely opt-in — core tracking features work fully without
+    any account or cloud connectivity.
   </p>
 
   <!-- 2. Data we collect -->
@@ -221,26 +231,52 @@
     <p style="margin:8px 0 0">
       Pudder uses your precise GPS location during an active round to record where
       each shot lands and calculate distances to the green. Location is accessed
-      <em>only</em> while a round is in progress and is never uploaded, shared, or
-      used for advertising.
+      <em>only</em> while a round is in progress. Your GPS coordinates and shot
+      positions are never uploaded to any server — they remain on your device only,
+      even if you have a social account enabled.
     </p>
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="icon">👤</span> Profile (Name &amp; Handicap) <span class="badge badge-green">On-device only</span></div>
+    <div class="card-title"><span class="icon">👤</span> Profile (Name &amp; Handicap) <span class="badge badge-green">On-device by default</span></div>
     <p style="margin:8px 0 0">
-      You may optionally enter your name and handicap index. This information is
-      stored locally on your device using iOS secure storage and is never sent
-      off your device.
+      You may optionally enter your name and handicap index. This is stored locally
+      on your device. If you create a social account, your chosen display name and
+      handicap index are also stored on Stream's servers to power your public profile.
+      You can delete this at any time from Profile → Social → Delete Account.
     </p>
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="icon">🏌️</span> Round &amp; Shot History <span class="badge badge-green">On-device only</span></div>
+    <div class="card-title"><span class="icon">🏌️</span> Round &amp; Shot History <span class="badge badge-green">On-device by default</span></div>
     <p style="margin:8px 0 0">
       Your round history, scores, shot positions, club distances, and handicap
       records are stored entirely on your device. You can export this data as a
-      backup file at any time and delete it permanently from within the app.
+      backup file and delete it permanently from within the app. If you have a
+      social account, a summary of completed rounds (course name, date, score,
+      holes played) is posted to your social feed on Stream's servers. Shot-level
+      GPS data is never included in social posts.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="icon">🌐</span> Social Profile &amp; Feed <span class="badge badge-blue">Optional — off by default</span></div>
+    <p style="margin:8px 0 0">
+      If you choose to create a social account, the following data is transmitted
+      to and stored on Stream's servers (getstream.io):
+    </p>
+    <ul style="margin: 8px 0 0 20px;">
+      <li>Your chosen display name</li>
+      <li>Your handicap index</li>
+      <li>Round summaries (course name, date, score, holes played) for rounds you complete while a social account is active</li>
+      <li>Follow relationships (who you follow and who follows you)</li>
+      <li>A push notification device token if you enable notifications</li>
+    </ul>
+    <p style="margin:8px 0 0">
+      This data is used solely to provide the social feed feature. It is never
+      sold, shared with advertisers, or used for any purpose other than operating
+      the Pudder social feed. You can delete your social account and all associated
+      cloud data from Profile → Social → Delete Account.
     </p>
   </div>
 
@@ -249,10 +285,10 @@
     <p style="margin:8px 0 0">
       When you search for a golf course, Pudder queries
       <a href="https://www.openstreetmap.org" target="_blank">OpenStreetMap</a>'s
-      Overpass API to retrieve publicly available course layout data (hole
-      positions, tees, greens). This request contains no personal information —
-      only the geographic bounding box of the course. Course data is cached on
-      your device to minimise repeat requests.
+      Overpass API (via our own proxy) to retrieve publicly available course layout
+      data (hole positions, tees, greens). This request contains no personal
+      information — only the geographic bounding box of the course. Course data is
+      cached on your device to minimise repeat requests.
     </p>
   </div>
 
@@ -269,20 +305,32 @@
     </thead>
     <tbody>
       <tr>
-        <td>Precise location</td>
+        <td>Precise location &amp; shot positions</td>
         <td>On-device only</td>
         <td>No</td>
         <td>No</td>
       </tr>
       <tr>
         <td>Name &amp; handicap</td>
+        <td>On-device; Stream servers if social enabled</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Round summaries (score, course, date)</td>
+        <td>On-device; Stream servers if social enabled</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Shot-level GPS data</td>
         <td>On-device only</td>
         <td>No</td>
         <td>No</td>
       </tr>
       <tr>
-        <td>Round &amp; shot history</td>
-        <td>On-device only</td>
+        <td>Push notification token</td>
+        <td>Stream servers if notifications enabled</td>
         <td>No</td>
         <td>No</td>
       </tr>
@@ -316,62 +364,85 @@
   <p>
     Pudder contains <strong>no analytics SDKs, no advertising SDKs, and no
     crash-reporting services</strong>. We do not track you across other apps or
-    websites. Apple's own aggregated App Store metrics may be collected by Apple
-    under their own privacy policy.
+    websites. The Stream SDK included for optional social features is used solely
+    for feed functionality and is not used for analytics or advertising. Apple's
+    own aggregated App Store metrics may be collected by Apple under their own
+    privacy policy.
   </p>
 
   <!-- 6. Data retention -->
   <h2>6. Data Retention and Deletion</h2>
   <p>
-    Your data is retained on your device until you delete it. You can delete all
-    data at any time from within the app:
+    Your on-device data is retained until you delete it. Your social account data
+    on Stream's servers is retained until you delete your account. You can delete
+    all data at any time from within the app:
   </p>
   <ul>
     <li><strong>Delete a single round:</strong> Swipe left on any round in your history.</li>
     <li><strong>Clear all round history:</strong> Profile → Data → Clear All Round History.</li>
-    <li><strong>Delete all data:</strong> Profile → Data → Delete Account removes your
-      profile, all rounds, club settings, and cached course data permanently.</li>
+    <li><strong>Delete all local data:</strong> Profile → Data → Delete Account removes your
+      profile, all rounds, club settings, and cached course data from your device.</li>
+    <li><strong>Delete social account:</strong> Profile → Social → Delete Account removes
+      your display name, round summaries, and follow relationships from Stream's servers.</li>
   </ul>
   <p>
-    Because all data is stored only on your device, uninstalling the app will
-    also remove all associated data.
+    Uninstalling the app removes all on-device data. Social account data on Stream's
+    servers must be deleted separately using the in-app option above.
   </p>
 
   <!-- 7. Children -->
   <h2>7. Children's Privacy</h2>
   <p>
-    Pudder is rated 4+ and is suitable for all ages. We do not knowingly collect
-    any personal information from children under 13. Because all data stays on
-    the user's device and is never transmitted to us, there are no additional
-    risks specific to children.
+    Pudder is rated 4+ and is suitable for all ages for core tracking features.
+    The optional social feature involves creating a public profile and is intended
+    for users aged 13 and over, consistent with Stream's terms of service. We do
+    not knowingly collect personal information from children under 13 via the
+    social feature. If you believe a child under 13 has created a social account,
+    contact us at pudderapp@gmail.com and we will delete it promptly.
   </p>
 
   <!-- 8. Third-party services -->
   <h2>8. Third-Party Services</h2>
-  <p>
-    Pudder uses one external service:
-  </p>
+  <p>Pudder uses the following external services:</p>
   <ul>
     <li>
-      <strong>OpenStreetMap Overpass API</strong> (<a href="https://overpass-api.de" target="_blank">overpass-api.de</a>)
-      — used anonymously to fetch publicly available golf course layout data.
-      No personal data is sent. See the
+      <strong>Stream Feeds (getstream.io)</strong> — powers the optional social
+      feed. Activated only if you create a social account. Data sent: display name,
+      handicap index, round summaries, push notification token. Data is stored on
+      Stream's servers and subject to the
+      <a href="https://getstream.io/privacy-policy/" target="_blank">Stream Privacy Policy</a>.
+      Your data is never sold or shared with advertisers by Stream or by us.
+    </li>
+    <li>
+      <strong>Pudder Course API / OpenStreetMap Overpass API</strong>
+      (<a href="https://overpass-api.de" target="_blank">overpass-api.de</a>,
+      proxied via our Cloudflare Worker) — used anonymously to fetch publicly
+      available golf course layout data. No personal data is sent. See the
       <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OpenStreetMap Foundation Privacy Policy</a>.
     </li>
+    <li>
+      <strong>Apple MapKit</strong> — used for course search and map display.
+      Governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.
+    </li>
+    <li>
+      <strong>Apple In-App Purchases</strong> — used to process the optional tip
+      jar purchase. Payment is handled entirely by Apple. We receive no payment
+      card information.
+    </li>
   </ul>
-  <p>
-    Apple Maps (MKLocalSearch) is used for course search. This is governed by
-    <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.
-  </p>
 
   <!-- 9. Your rights -->
   <h2>9. Your Rights</h2>
   <p>
-    Because we do not collect or store your data on any server, standard data
-    subject rights (access, rectification, portability, erasure) are exercised
-    directly on your device using the deletion features described in Section 6.
-    There is no account to request deletion of from our side — your data belongs
-    entirely to you.
+    For on-device data, all standard data subject rights (access, rectification,
+    portability, erasure) are exercised directly on your device using the deletion
+    features described in Section 6.
+  </p>
+  <p>
+    For social account data held on Stream's servers, you can request access,
+    correction, or deletion by using the in-app Delete Account option (Profile →
+    Social → Delete Account) or by contacting us at pudderapp@gmail.com. We will
+    process your request within 30 days.
   </p>
 
   <!-- 10. Changes -->
